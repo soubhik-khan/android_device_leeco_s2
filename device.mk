@@ -146,12 +146,12 @@ PRODUCT_PACKAGES += \
     camera.msm8952
 
 # Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
+# PRODUCT_PACKAGES += \
+#    charger_res_images
 
 # CMActions
-PRODUCT_PACKAGES += \
-    CMActions
+# PRODUCT_PACKAGES += \
+#    CMActions
 
 # Display
 PRODUCT_PACKAGES += \
