@@ -196,6 +196,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     keystore.msm8952
 
+# Libshims
+PRODUCT_PACKAGES += \
+    libshims_ims
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8952
@@ -237,9 +241,9 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
 
 # IPA Manager
-#PRODUCT_PACKAGES += \
-#    ipacm \
-#    IPACM_cfg.xml
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
 
 # Power
 PRODUCT_PACKAGES += \
