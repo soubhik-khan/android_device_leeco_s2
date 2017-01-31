@@ -180,6 +180,8 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 TARGET_USES_WCNSS_MAC_ADDR_REV := true
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan"
 
 # Cyanogen hardware
 BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
