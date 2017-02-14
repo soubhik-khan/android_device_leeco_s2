@@ -432,4 +432,9 @@
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
+    <!-- Enable doze powersaving -->
+    <bool name="config_doze_enabled_by_default">true</bool>
+
+    <!-- HW Keys Overlay -->
+    <bool name="config_hwKeysPref">true</bool>
 </resources>
