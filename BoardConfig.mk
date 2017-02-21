@@ -116,14 +116,16 @@ QCOM_BT_USE_SMD_TTY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
+# This is needed for us as it disables tcache, which is breaking camera.
+MALLOC_SVELTE := true
+BOARD_GLOBAL_CFLAGS += -DDECAY_TIME_DEFAULT=0
+
 # Charger
+WITH_CM_CHARGER := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BACKLIGHT_PATH := "/sys/class/leds/lcd-backlight/brightness"
 BLINK_PATH := "/sys/class/leds/red/blink"
-
-BOARD_HAL_STATIC_LIBRARIES := \
-    libhealthd.msm8952
 
 # CNE
 BOARD_USES_QCNE := true
@@ -185,6 +187,15 @@ TARGET_USES_WCNSS_MAC_ADDR_REV := true
 BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
 BOARD_USES_CYANOGEN_HARDWARE := true
 
+# Enable dexpreopt to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # Twrp
 #RECOVERY_VARIANT := twrp
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -202,6 +213,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NTFS_3G := true
 #TWRP_EVENT_LOGGING := true
 else
+USE_CLANG_PLATFORM_BUILD := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 endif
 
