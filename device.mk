@@ -167,7 +167,7 @@ PRODUCT_PACKAGES += \
 # Display / OpenGLES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610 \
-    sys.sf.lcd_density=420
+    ro.sf.lcd_density=420
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -352,4 +352,6 @@ endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-PRODUCT_GMS_CLIENTID_BASE := android-leeco
+# Model is set via init library
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
+    ro.product.model
